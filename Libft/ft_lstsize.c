@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohortal- <ohortal-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 12:23:57 by ohortal-          #+#    #+#             */
-/*   Updated: 2023/02/06 11:53:16 by ohortal-         ###   ########.fr       */
+/*   Created: 2023/02/13 12:14:04 by ohortal-          #+#    #+#             */
+/*   Updated: 2023/02/13 12:26:33 by ohortal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (s[i])
+	while (lst != NULL)
 	{
+		lst = lst -> next;
 		i++;
 	}
 	return (i);
-}	
+}
