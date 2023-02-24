@@ -6,7 +6,7 @@
 #    By: ohortal- <ohortal-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 11:34:43 by ohortal-          #+#    #+#              #
-#    Updated: 2023/02/13 15:23:34 by ohortal-         ###   ########.fr        #
+#    Updated: 2023/02/24 12:13:41 by ohortal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,17 +20,23 @@ BONUS_OBJS = $(BONUS:.c=.o)
 
 AR = ar rcs
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror -MMD
+INCLUDE = -I libft.h
 NAME = libft.a
 RM = rm -f
 
+DEPS = $(OBJS:.o=.d)
+
+DEPS_BONUS = $(BONUS_OBJS:.o=.d)
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(BONUS_OBJS)
+	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+-include $(DEPS) $(DEPS_BONUD)
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS) $(DEPS) $(DEPS_BONUS)
 
 fclean: clean
 	$(RM) $(NAME)
