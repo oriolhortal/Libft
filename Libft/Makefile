@@ -6,7 +6,7 @@
 #    By: ohortal- <ohortal-@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 11:34:43 by ohortal-          #+#    #+#              #
-#    Updated: 2023/02/24 12:13:41 by ohortal-         ###   ########.fr        #
+#    Updated: 2023/03/07 10:53:32 by ohortal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(BONUS_OBJS)
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
--include $(DEPS) $(DEPS_BONUD)
+-include $(DEPS) $(DEPS_BONUS)
 
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS) $(DEPS) $(DEPS_BONUS)
